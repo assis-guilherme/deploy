@@ -18,11 +18,11 @@ const response = {
   }
 };
 
-router.get("/", (req, res) => {
+router.get("/api", (req, res) => {
   res.json(response)
 })
 
-app.use("/api", router)
+app.use("/", router)
 
 require('./config/db')
 
