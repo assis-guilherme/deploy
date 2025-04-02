@@ -8,7 +8,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await api.get("/");
+        const response = await api.get("/api");
         setData(response.data);
       } catch (error) {
         console.error("Erro ao buscar dados:", error);
