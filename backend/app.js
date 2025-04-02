@@ -22,9 +22,10 @@ router.get("/", (req, res) => {
   res.json(response)
 })
 
-app.use("/", router)
+app.use("/api", router)
 
 require('./config/db')
+
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta: ${port}`)

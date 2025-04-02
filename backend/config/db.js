@@ -1,19 +1,19 @@
-const mongoose = require("mongoose");
+const mysql = require("mysql2");
 
-const connectionDB = async () => {
-  try {
-    const connect = await mongoose.connect(
-      "mongodb://localhost:27017/reactgram"
-    );
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'sua_nova_senha',
+  database: 'deployDB'
+});
 
-    console.log("Conectado no MongoDB");
-
-    return connect;
-  } catch (error) {
-    console.log(`Error => ${error}`);
+connection.connect((err) => {
+  if (err) {
+    console.error('Erro ao conectar ao MySQL:', err);
+  } else {
+    console.log('Conectado ao MySQL!');
   }
-};
+});
 
-connectionDB();
 
-module.exports = connectionDB;
+module.exports = connection;
